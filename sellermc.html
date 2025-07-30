@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Missèbo Connect - Devenir vendeur">
+  <title>Missèbo Connect - Devenir vendeur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .choice-container {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 24px 12px;
+      text-align: center;
+    }
+    
+    .choice-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    
+    .choice-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    
+    .choice-button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      background: #ECEFF1;
+      text-align: center;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    
+    .choice-button.active {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .ambassador-program {
+      background: #E8F5E9;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 12px;
+    }
+    
+    .ambassador-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: var(--secondary);
+    }
+    
+    .ambassador-text {
+      color: var(--text);
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    .ambassador-button {
+      background: var(--secondary);
+      color: white;
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="back-button">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="logo">
+        <div class="logo-icon">MC</div>
+        <span>Devenir vendeur</span>
+      </div>
+    </div>
+    
+    <div class="choice-container">
+      <div class="choice-title">Vous souhaitez vendre sur Missèbo Connect ?</div>
+      <p>Rejoignez notre communauté de vendeurs et augmentez vos ventes en ligne.</p>
+      
+      <div class="choice-buttons">
+        <div class="choice-button" onclick="window.location.href='login.html?redirect=seller-profile.html'">
+          Se connecter
+        </div>
+        <div class="choice-button" onclick="window.location.href='register.html?type=seller'">
+          S'inscrire
+        </div>
+      </div>
+    </div>
+    
+    <div class="info-section">
+      <h3 class="info-title">Avantages de vendre sur Missèbo Connect</h3>
+      <ul style="padding-left: 20px; margin-top: 10px;">
+        <li style="margin-bottom: 8px;">Visibilité accrue pour vos produits</li>
+        <li style="margin-bottom: 8px;">Accès à un large réseau d'acheteurs</li>
+        <li style="margin-bottom: 8px;">Paiement sécurisé via WhatsApp</li>
+        <li style="margin-bottom: 8px;">Assistance technique gratuite</li>
+      </ul>
+    </div>
+    
+    <div class="ambassador-program">
+      <div class="ambassador-title">Programme d'ambassadeur</div>
+      <div class="ambassador-text">Devenez ambassadeur et gagnez 500 FCFA par inscription réussie de vendeur</div>
+      <div class="ambassador-button" onclick="shareAppAsAmbassador()">Partager en tant qu'ambassadeur</div>
+    </div>
+    
+    <!-- Footer de navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <div class="nav-icon"><i class="fas fa-home"></i></div>
+        <div class="nav-text">Accueil</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-search"></i></div>
+        <div class="nav-text">Recherche</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-video"></i></div>
+        <div class="nav-text">Live</div>
+      </div>
+      <div class="nav-item" onclick="window.location.href='buyer-profile.html'">
+        <div class="nav-icon"><i class="fas fa-user"></i></div>
+        <div class="nav-text">Profil</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/main.js"></script>
+  <script>
+    function shareAppAsAmbassador() {
+      const message = "Rejoignez Missèbo Connect et gagnez 500 FCFA par inscription réussie !";
+      const shareUrl = "https://missebo-connect.vercel.app";
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'Missèbo Connect - Programme Ambassadeur',
+          text: message,
+          url: shareUrl
+        });
+      } else {
+        alert(`${message}\n${shareUrl}`);
+      }
+    }
+  </script>
+</body>
+</html>

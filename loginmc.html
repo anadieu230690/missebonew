@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Missèbo Connect - Connexion">
+  <title>Missèbo Connect - Connexion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .login-container {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 12px;
+    }
+    
+    .login-title {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    
+    .phone-input {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    
+    .country-code {
+      width: 55px;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #F8F9FC;
+      font-weight: bold;
+      text-align: center;
+      font-size: 13px;
+    }
+    
+    .phone-number {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    
+    .otp-section {
+      margin-top: 16px;
+    }
+    
+    .otp-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    
+    .otp-digit {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .resend-otp {
+      text-align: center;
+      color: var(--primary);
+      font-weight: bold;
+      margin-top: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    
+    .login-button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 6px;
+    }
+    
+    .register-link {
+      text-align: center;
+      color: var(--primary);
+      font-weight: bold;
+      margin-top: 12px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="back-button">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="logo">
+        <div class="logo-icon">MC</div>
+        <span>Connexion</span>
+      </div>
+    </div>
+    
+    <div class="login-container">
+      <h2 class="login-title">Se connecter à votre compte</h2>
+      
+      <div class="form-group">
+        <label class="form-label">Numéro de téléphone</label>
+        <div class="phone-input">
+          <input type="text" class="country-code" value="+229" readonly>
+          <input type="tel" class="phone-number" id="login-phone" placeholder="01 59 07 07 37">
+        </div>
+      </div>
+      
+      <button class="login-button" onclick="login()">Se connecter</button>
+      
+      <div class="otp-section" id="otp-section" style="display: none;">
+        <div class="form-group">
+          <label class="form-label">Code de vérification</label>
+          <div class="otp-inputs">
+            <input type="text" class="otp-digit" maxlength="1" data-index="0">
+            <input type="text" class="otp-digit" maxlength="1" data-index="1">
+            <input type="text" class="otp-digit" maxlength="1" data-index="2">
+            <input type="text" class="otp-digit" maxlength="1" data-index="3">
+          </div>
+          <div class="resend-otp" onclick="resendOTP()">Vous n'avez pas reçu de code ? Renvoyer le code</div>
+        </div>
+      </div>
+      
+      <div class="register-link" onclick="window.location.href='register.html'">
+        Pas de compte ? S'inscrire
+      </div>
+    </div>
+    
+    <div class="ambassador-program">
+      <div class="ambassador-title">Programme d'ambassadeur</div>
+      <div class="ambassador-text">Recommandez notre application à vos amis et gagnez 500 FCFA par inscription réussie</div>
+      <div class="ambassador-button" onclick="shareApp()">Partager l'application</div>
+    </div>
+    
+    <!-- Footer de navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <div class="nav-icon"><i class="fas fa-home"></i></div>
+        <div class="nav-text">Accueil</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-search"></i></div>
+        <div class="nav-text">Recherche</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-video"></i></div>
+        <div class="nav-text">Live</div>
+      </div>
+      <div class="nav-item" onclick="window.location.href='buyer-profile.html'">
+        <div class="nav-icon"><i class="fas fa-user"></i></div>
+        <div class="nav-text">Profil</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/main.js"></script>
+  <script>
+    function login() {
+      const phoneNumber = document.getElementById('login-phone').value.trim();
+      
+      if (!phoneNumber || phoneNumber.length < 8) {
+        alert('Veuillez entrer un numéro de téléphone valide');
+        return;
+      }
+      
+      // Simuler l'envoi du code OTP
+      console.log('Code OTP envoyé à:', phoneNumber);
+      
+      // Afficher la section OTP
+      document.getElementById('otp-section').style.display = 'block';
+      
+      // Simuler la réception du code
+      setTimeout(() => {
+        document.querySelectorAll('.otp-digit').forEach((input, index) => {
+          input.value = '1234'.charAt(index);
+        });
+        
+        // Simuler la validation automatique
+        verifyOTP();
+      }, 1000);
+    }
+    
+    function verifyOTP() {
+      const otp = Array.from(document.querySelectorAll('.otp-digit'))
+        .map(input => input.value)
+        .join('');
+      
+      if (otp === '1234') {
+        // Créer un objet utilisateur fictif
+        const user = {
+          id: Date.now().toString(),
+          name: 'Utilisateur',
+          phone: document.getElementById('login-phone').value,
+          type: 'buyer',
+          email: '',
+          address: ''
+        };
+        
+        // Stocker l'utilisateur dans localStorage
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        
+        // Rediriger vers la page appropriée
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirect = urlParams.get('redirect') || 'index.html';
+        window.location.href = redirect;
+      } else {
+        alert('Code incorrect. Veuillez réessayer.');
+      }
+    }
+    
+    function resendOTP() {
+      console.log('Nouveau code de vérification envoyé');
+      alert('Un nouveau code de vérification vous a été envoyé.');
+      
+      // Réinitialiser les champs
+      document.querySelectorAll('.otp-digit').forEach(input => {
+        input.value = '';
+      });
+      document.querySelector('.otp-digit').focus();
+    }
+    
+    // Gestion des événements pour les champs OTP
+    document.querySelectorAll('.otp-digit').forEach((input, index) => {
+      input.addEventListener('input', function() {
+        if (input.value.length === 1 && index < 3) {
+          document.querySelectorAll('.otp-digit')[index + 1].focus();
+        }
+        
+        // Vérifier si tous les champs sont remplis
+        if (index === 3 && input.value) {
+          verifyOTP();
+        }
+      });
+      
+      input.addEventListener('keydown', function(event) {
+        if (event.key === 'Backspace' && input.value === '' && index > 0) {
+          document.querySelectorAll('.otp-digit')[index - 1].focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

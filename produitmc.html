@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Missèbo Connect - Détails du produit">
+  <title>Missèbo Connect - Détails du produit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-image-large {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .product-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .price-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+    
+    .old-price {
+      font-size: 14px;
+      text-decoration: line-through;
+      color: var(--text-light);
+      margin-left: 8px;
+    }
+    
+    .badge-container {
+      margin-bottom: 12px;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .neuf-badge {
+      background: var(--neuf);
+      color: white;
+    }
+    
+    .frippe-badge {
+      background: var(--frippe);
+      color: white;
+    }
+    
+    .product-description {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    
+    .info-section {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .info-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .info-text {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    
+    .share-button, .offer-button-detail {
+      flex: 1;
+    }
+    
+    .offer-button {
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .whatsapp-button {
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 6px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    
+    .whatsapp-button i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="back-button">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="logo">
+        <div class="logo-icon">MC</div>
+        <span>Détails du produit</span>
+      </div>
+    </div>
+    
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" class="product-image-large" alt="Chemise traditionnelle">
+    
+    <h1 class="product-title">Chemise traditionnelle</h1>
+    
+    <div class="price-row">
+      <div class="price">8 500 FCFA</div>
+      <div class="old-price">10 000 FCFA</div>
+    </div>
+    
+    <div class="badge-container">
+      <span class="badge neuf-badge">NEUF</span>
+    </div>
+    
+    <p class="product-description">
+      Magnifique chemise traditionnelle en tissu de qualité, fabriquée à la main. Parfaite pour les cérémonies et événements spéciaux. Taille unique (convient du S au L).
+    </p>
+    
+    <div class="info-section">
+      <h3 class="info-title">Informations vendeur</h3>
+      <p class="info-text">Nom: Koffi</p>
+      <p class="info-text">Emplacement: Allée 2, près de la boutique rouge</p>
+    </div>
+    
+    <div class="info-section">
+      <h3 class="info-title">Détails du produit</h3>
+      <p class="info-text">Catégorie: Vêtements</p>
+      <p class="info-text">État: Neuf</p>
+    </div>
+    
+    <div class="action-buttons">
+      <div class="share-button">
+        <div class="offer-button">Partager</div>
+      </div>
+      <div class="offer-button-detail">
+        <div class="offer-button">💬 Marchander</div>
+      </div>
+    </div>
+    
+    <div class="whatsapp-button">
+      <i class="fab fa-whatsapp"></i>
+      <span>Contacter sur WhatsApp</span>
+    </div>
+    
+    <!-- Boutons d'achat -->
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+      <div class="offer-button" style="background: var(--secondary);">Acheter maintenant</div>
+    </div>
+    
+    <!-- Footer de navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-home"></i></div>
+        <div class="nav-text">Accueil</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-search"></i></div>
+        <div class="nav-text">Recherche</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-video"></i></div>
+        <div class="nav-text">Live</div>
+      </div>
+      <div class="nav-item" onclick="window.location.href='buyer-profile.html'">
+        <div class="nav-icon"><i class="fas fa-user"></i></div>
+        <div class="nav-text">Profil</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/main.js"></script>
+</body>
+</html>

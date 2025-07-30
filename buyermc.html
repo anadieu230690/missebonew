@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Missèbo Connect - Profil acheteur">
+  <title>Missèbo Connect - Mon Profil Acheteur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .profile-header {
+      text-align: center;
+      padding: 16px 12px;
+    }
+    
+    .profile-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 35px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+    
+    .profile-avatar i {
+      font-size: 24px;
+      color: white;
+    }
+    
+    .profile-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+    
+    .profile-role {
+      color: var(--text-light);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+    
+    .order-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-name {
+      font-weight: bold;
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+    
+    .order-date {
+      color: var(--text-light);
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+    
+    .order-status {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="back-button">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="logo">
+        <div class="logo-icon">MC</div>
+        <span>Mon Profil Acheteur</span>
+      </div>
+    </div>
+    
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <h2 class="profile-name">Utilisateur</h2>
+      <p class="profile-role">Acheteur depuis 6 mois</p>
+    </div>
+    
+    <div class="info-section">
+      <h3 class="info-title">Informations personnelles</h3>
+      <p class="info-text">Téléphone: Non renseigné</p>
+      <p class="info-text">Email: Non renseigné</p>
+      <p class="info-text">Adresse: Non renseigné</p>
+    </div>
+    
+    <div class="info-section">
+      <h3 class="info-title">Mes commandes</h3>
+      <div class="order-item">
+        <div class="order-name">Robe traditionnelle</div>
+        <div class="order-date">15 mai 2024</div>
+        <div class="order-status">Livrée</div>
+      </div>
+      <div class="order-item">
+        <div class="order-name">Chemise traditionnelle</div>
+        <div class="order-date">10 mai 2024</div>
+        <div class="order-status">En cours</div>
+      </div>
+      <div class="order-item">
+        <div class="order-name">Pantalon traditionnel</div>
+        <div class="order-date">5 mai 2024</div>
+        <div class="order-status">Livrée</div>
+      </div>
+      <div class="order-item">
+        <div class="order-name">Sandales en cuir</div>
+        <div class="order-date">2 mai 2024</div>
+        <div class="order-status">Livrée</div>
+      </div>
+    </div>
+    
+    <div class="offer-button" style="background: var(--secondary); margin: 12px 0; font-size: 13px;">
+      Se déconnecter
+    </div>
+    
+    <!-- Footer de navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <div class="nav-icon"><i class="fas fa-home"></i></div>
+        <div class="nav-text">Accueil</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-search"></i></div>
+        <div class="nav-text">Recherche</div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-video"></i></div>
+        <div class="nav-text">Live</div>
+      </div>
+      <div class="nav-item active">
+        <div class="nav-icon"><i class="fas fa-user"></i></div>
+        <div class="nav-text">Profil</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/main.js"></script>
+  <script>
+    // Gestion de la déconnexion
+    document.querySelector('.offer-button').addEventListener('click', function() {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
